@@ -44,3 +44,6 @@ docker/generated.mk
 
 # Vim backup files.
 .*.swp
+
+# Experiment config file
+experiment-config.yaml
