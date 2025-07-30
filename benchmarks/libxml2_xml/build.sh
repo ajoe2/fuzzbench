@@ -13,35 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ "$SANITIZER" = undefined ]; then
-    export CFLAGS="$CFLAGS -fsanitize=unsigned-integer-overflow -fno-sanitize-recover=unsigned-integer-overflow"
-    export CXXFLAGS="$CXXFLAGS -fsanitize=unsigned-integer-overflow -fno-sanitize-recover=unsigned-integer-overflow"
-fi
+cd libxml2
+git apply ../fr_injection.patch
 
-export V=1
+./autogen.sh
+CCLD="$CXX $CXXFLAGS" ./configure --without-python --with-threads=no \
+    --with-zlib=no --with-lzma=no
+make -j1
 
-./autogen.sh \
-    --disable-shared \
-    --without-debug \
-    --without-ftp \
-    --without-http \
-    --without-legacy \
-    --without-python
-make -j$(nproc)
-
-cd fuzz
-make clean-corpus
-make fuzz.o
-
-make xml.o
-# Link with $CXX
-$CXX $CXXFLAGS \
-    xml.o fuzz.o \
-    -o $OUT/xml \
-    $LIB_FUZZING_ENGINE \
-    ../.libs/libxml2.a -Wl,-Bstatic -lz -llzma -Wl,-Bdynamic
-
-[ -e seed/xml ] || make seed/xml.stamp
-zip -j $OUT/xml_seed_corpus.zip seed/xml/*
-
-cp *.dict *.options $OUT/
+$CXX $CXXFLAGS -std=c++11 $SRC/target.cc -I include .libs/libxml2.a \
+    $FUZZER_LIB -o $OUT/xml
