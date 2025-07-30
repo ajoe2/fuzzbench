@@ -1,11 +1,10 @@
-#!/bin/bash -ex
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,15 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cd libxml2
-git apply ../fr_injection.patch
+ARG parent_image
+FROM $parent_image
 
-./autogen.sh
-CCLD="$CXX $CXXFLAGS" ./configure --without-python --with-threads=no \
-    --with-zlib=no --with-lzma=no
-make -j1
-
-$CXX $CXXFLAGS -std=c++11 $SRC/target.cc -I include .libs/libxml2.a \
-    $FUZZER_LIB -o $OUT/xml
-
-zip -j "$OUT/xml_seed_corpus.zip" $SRC/seeds/*
+COPY FRFuzzingDriver.a /usr/lib/
