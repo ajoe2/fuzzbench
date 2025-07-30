@@ -20,7 +20,7 @@ git apply ../fr_injection.patch
 # build project
 mkdir build
 cd build
-cmake ..
+cmake -DDISABLE_DBUS=1 ..
 make -k || true
 
 
