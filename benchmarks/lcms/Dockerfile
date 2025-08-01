@@ -29,4 +29,5 @@ RUN wget -qO $OUT/fuzz-target.dict \
     https://raw.githubusercontent.com/google/fuzzing/master/dictionaries/icc.dict
 COPY cms_transform_fuzzer.cc build.sh $SRC/
 COPY fr_injection.patch $SRC/
-ADD seeds /opt/seeds
+# ADD seeds /opt/seeds
+ADD seeds $SRC/seeds
