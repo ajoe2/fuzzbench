@@ -24,6 +24,7 @@ COPY build.sh $SRC/
 COPY fuzz_cxxfilt.c $SRC/
 COPY fuzz_cxxfilt.options $SRC/
 COPY fr_injection.patch $SRC/
-ADD seeds $OUT/seeds
+# ADD seeds $OUT/seeds
+ADD seeds $SRC/seeds
 
 WORKDIR $SRC/

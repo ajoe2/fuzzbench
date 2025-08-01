@@ -35,4 +35,7 @@ $CC $CFLAGS -DHAVE_CONFIG_H -I. -I../bfd -I./../bfd -I./../include -I./../zlib -
 $CXX $CXXFLAGS $LIB_FUZZING_ENGINE -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -I./../zlib -o fuzz_cxxfilt fuzz_cxxfilt.o bucomm.o version.o filemode.o ../bfd/.libs/libbfd.a -L/src/binutils-gdb/zlib -lpthread -ldl -lz ../libiberty/libiberty.a
 mv fuzz_cxxfilt $OUT/fuzz_cxxfilt
 
+# Include seed corpus
+zip -j $OUT/fuzz_cxxfilt_seed_corpus.zip" $SRC/seeds/*
+
 cp $SRC/fuzz_cxxfilt.options $OUT/fuzz_cxxfilt.options
