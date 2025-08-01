@@ -23,3 +23,6 @@ make -j1
 
 $CXX $CXXFLAGS -std=c++11 $SRC/target.cc -I include .libs/libxml2.a \
     $FUZZER_LIB -o $OUT/xml
+
+# Include seed corpus
+zip -j $OUT/xml_seed_corpus.zip" $SRC/seeds/*

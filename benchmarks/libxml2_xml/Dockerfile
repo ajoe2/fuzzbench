@@ -29,7 +29,8 @@ RUN apt-get update && \
 
 RUN git clone https://gitlab.gnome.org/GNOME/libxml2.git $SRC/libxml2 && git -C $SRC/libxml2 checkout -f v2.9.2
 
-ADD seeds $OUT/seeds
+# ADD seeds $OUT/seeds
+ADD seeds $SRC/seeds
 
 RUN wget -qO $OUT/fuzz-target.dict \
     https://raw.githubusercontent.com/google/AFL/debe27037b9444bbf090a0ffbd5d24889bb887ae/dictionaries/xml.dict
