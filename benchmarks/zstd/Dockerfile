@@ -22,5 +22,7 @@ RUN git clone https://github.com/facebook/zstd $SRC/zstd && git -C $SRC/zstd che
 
 WORKDIR zstd
 
+ADD seeds $SRC/seeds
+
 COPY build.sh $SRC/
 COPY fr_injection.patch $SRC/

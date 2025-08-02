@@ -27,5 +27,7 @@ make seedcorpora
 for target in "stream_decompress"; do
     cp "$target" "$OUT"
 
-    cp "corpora/${target}_seed_corpus.zip" "$OUT"
+    # cp "corpora/${target}_seed_corpus.zip" "$OUT"
+    # Include seed corpus
+    zip -j "$OUT/${target}_seed_corpus.zip" $SRC/seeds/*
 done
