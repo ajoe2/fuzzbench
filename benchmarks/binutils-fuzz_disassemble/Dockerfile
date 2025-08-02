@@ -23,6 +23,7 @@ RUN git clone --recursive git://sourceware.org/git/binutils-gdb.git $SRC/binutil
 COPY build.sh $SRC/
 COPY fuzz_disassemble.c $SRC/
 COPY fr_injection.patch $SRC/
-ADD seeds $OUT/seeds
+# ADD seeds $OUT/seeds
+ADD seeds $SRC/seeds
 
 WORKDIR $SRC/
