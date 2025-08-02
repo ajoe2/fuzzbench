@@ -24,4 +24,4 @@ $CXX $CXXFLAGS $SRC/cms_transform_fuzzer.cc -I include/ src/.libs/liblcms2.a \
 # cp -r /opt/seeds $OUT/
 
 # Include seed corpus
-zip -j $OUT/cms_transform_fuzzer_seed_corpus.zip" $SRC/seeds/*
+zip -j "$OUT/cms_transform_fuzzer_seed_corpus.zip" $SRC/seeds/*

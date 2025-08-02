@@ -36,6 +36,6 @@ $CXX $CXXFLAGS $LIB_FUZZING_ENGINE -W -Wall -Wstrict-prototypes -Wmissing-protot
 mv fuzz_cxxfilt $OUT/fuzz_cxxfilt
 
 # Include seed corpus
-zip -j $OUT/fuzz_cxxfilt_seed_corpus.zip" $SRC/seeds/*
+zip -j "$OUT/fuzz_cxxfilt_seed_corpus.zip" $SRC/seeds/*
 
 cp $SRC/fuzz_cxxfilt.options $OUT/fuzz_cxxfilt.options

@@ -36,4 +36,4 @@ cd ..
 cp testprogs/fuzz/fuzz_*.options $OUT/
 
 # Include seed corpus
-zip -j $OUT/fuzz_both_seed_corpus.zip" $SRC/seeds/*
+zip -j "$OUT/fuzz_both_seed_corpus.zip" $SRC/seeds/*
