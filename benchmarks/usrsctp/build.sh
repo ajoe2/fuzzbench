@@ -32,5 +32,6 @@ for target in "fuzzer_connect"; do
   rm -f $OUT/${target}.o
 done
 
-zip -jr fuzzer_connect_seed_corpus.zip CORPUS_CONNECT/
-cp fuzzer_connect_seed_corpus.zip $OUT/
+# zip -jr fuzzer_connect_seed_corpus.zip CORPUS_CONNECT/
+# cp fuzzer_connect_seed_corpus.zip $OUT/
+zip -j "$OUT/fuzzer_connect_seed_corpus.zip" $SRC/seeds/*

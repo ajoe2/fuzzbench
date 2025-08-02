@@ -22,3 +22,5 @@ RUN git clone https://github.com/weinrank/usrsctp $SRC/usrsctp && git -C $SRC/us
 WORKDIR usrsctp
 COPY build.sh $SRC/
 COPY fr_injection.patch $SRC/
+
+ADD seeds $SRC/seeds
