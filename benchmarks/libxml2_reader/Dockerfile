@@ -26,3 +26,5 @@ WORKDIR $SRC/libxml2
 COPY build.sh $SRC/
 COPY fr_injection.patch $SRC/
 COPY *.cc *.h *.dict $SRC/
+
+ADD seeds $SRC/seeds

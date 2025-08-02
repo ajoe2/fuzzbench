@@ -19,8 +19,9 @@ git apply ../fr_injection.patch
 ./configure
 make -k -j || true
 
-mkdir $OUT/seeds
-cp nad/* $OUT/seeds
+# mkdir $OUT/seeds
+# cp nad/* $OUT/seeds
+zip -j "$OUT/standard_fuzzer_seed_corpus.zip" $SRC/seeds/*
 
 $CXX $CXXFLAGS -std=c++11 -I src test/fuzzers/standard_fuzzer.cpp \
     src/.libs/libproj.a $FUZZER_LIB -o $OUT/standard_fuzzer -lpthread

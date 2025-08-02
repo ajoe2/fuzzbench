@@ -28,4 +28,5 @@ $CXX $CXXFLAGS -std=c++11 -Iinclude/ \
     $LIB_FUZZING_ENGINE .libs/libxml2.a $LDFLAGS
 
 cp $SRC/xml.dict $OUT/libxml2_xml_reader_for_file_fuzzer.dict
-zip -r $OUT/libxml2_xml_reader_for_file_fuzzer_seed_corpus.zip $SRC/libxml2/test
+# zip -r $OUT/libxml2_xml_reader_for_file_fuzzer_seed_corpus.zip $SRC/libxml2/test
+zip -j "$OUT/libxml2_xml_reader_for_file_fuzzer_seed_corpus.zip" $SRC/seeds/*
