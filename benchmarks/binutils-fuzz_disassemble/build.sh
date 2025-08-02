@@ -33,4 +33,4 @@ $CC $CFLAGS -I ../include -I ../bfd -I ../opcodes -c fuzz_disassemble.c -o fuzz_
 $CXX $CXXFLAGS fuzz_disassemble.o -o $OUT/fuzz_disassemble $LIB_FUZZING_ENGINE ../opcodes/libopcodes.a ../bfd/libbfd.a ../libiberty/libiberty.a ../zlib/libz.a
 
 # Include seed corpus
-zip -j $OUT/fuzz_disassemble_seed_corpus.zip" $SRC/seeds/*
+zip -j "$OUT/fuzz_disassemble_seed_corpus.zip" $SRC/seeds/*

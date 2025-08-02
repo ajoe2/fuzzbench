@@ -38,4 +38,4 @@ mv fuzz_cxxfilt $OUT/fuzz_cxxfilt
 cp $SRC/fuzz_cxxfilt.options $OUT/fuzz_cxxfilt.options
 
 # Include seed corpus
-zip -j $OUT/fuzz_cxxfilt_seed_corpus.zip" $SRC/seeds/*
+zip -j "$OUT/fuzz_cxxfilt_seed_corpus.zip" $SRC/seeds/*
