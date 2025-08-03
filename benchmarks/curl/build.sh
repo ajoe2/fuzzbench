@@ -23,3 +23,7 @@ git apply ../fr_injection_curl_fuzzer.patch
 
 # Run the OSS-Fuzz script in the curl-fuzzer project.
 ./ossfuzz.sh
+
+# Use custom corpus
+rm $OUT/curl_fuzzer_http_seed_corpus.zip
+zip -j "$OUT/curl_fuzzer_http_seed_corpus.zip" $SRC/seeds/*
