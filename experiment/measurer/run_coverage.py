@@ -32,7 +32,7 @@ EXIT_BUFFER = 15
 RSS_LIMIT_MB = 2048
 
 # Per-unit processing timeout for libfuzzer merge.
-UNIT_TIMEOUT = 30
+UNIT_TIMEOUT = 60
 
 # Max time to spend on libfuzzer merge.
 MAX_TOTAL_TIME = experiment_utils.get_snapshot_seconds()
